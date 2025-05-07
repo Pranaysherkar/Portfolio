@@ -4,7 +4,9 @@ import Logo from "../assets/Logo.png";
 import FlowingMenu from "../templates/FlowingMenu"; // Adjust the import path as necessary
 
 const Header = () => {
-  const [isOpen, setisOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 }); // Declare mousePosition state
+
   const demoItems = [
     {
       link: "#",
@@ -28,17 +30,42 @@ const Header = () => {
     },
   ];
 
+  const handleMouseMove = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    setMousePosition({ x: x / 5, y: y / 5 }); // Divide by 5 to limit movement radius
+  };
+
+  const handleMouseLeave = () => {
+    setMousePosition({ x: 0, y: 0 }); // Reset position when the mouse leaves
+  };
+
   return (
     <div className="selection-none w-screen flex justify-between items-center px-10 py-6 fixed bg-transparent z-50">
-      {/* Logo */}
-      <div className="h-14 w-14 bg-black rounded-full overflow-hidden">
+      {/* Logo with Mouse Interaction */}
+      <motion.div
+        className="logo h-14 w-14 bg-black rounded-full overflow-hidden cursor-pointer"
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        style={{
+          transform: `translate(${mousePosition.x}px, ${mousePosition.y}px)`,
+          transition: "transform 0.1s ease-out",
+        }}
+      >
         <img src={Logo} alt="p." className="h-full w-full object-cover" />
-      </div>
+      </motion.div>
 
-      {/* Hamburger Icon */}
+      {/* Hamburger Icon with Mouse Interaction */}
       <div
         className="relative w-8 h-8 cursor-pointer z-20"
-        onClick={() => setisOpen(!isOpen)}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        style={{
+          transform: `translate(${mousePosition.x}px, ${mousePosition.y}px)`,
+          transition: "transform 0.1s ease-out",
+        }}
+        onClick={() => setIsOpen(!isOpen)}
       >
         <span
           className={`absolute left-0 h-1 w-full bg-white rounded transition-all duration-600 ease-in-out
@@ -62,7 +89,10 @@ const Header = () => {
           >
             <ul className="space-y-4 h-11/12 w-11/12 flex flex-col items-center justify-center rounded-lg shadow-lg text-4xl font-semibold">
               <div className="h-1/2 w-full flex items-center justify-center ">
-                <FlowingMenu className="rounded-2xl overflow-hidden" items={demoItems} />
+                <FlowingMenu
+                  className="rounded-2xl overflow-hidden"
+                  items={demoItems}
+                />
               </div>
             </ul>
           </motion.div>
