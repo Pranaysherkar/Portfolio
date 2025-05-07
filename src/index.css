@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+
+body {
+    font-family: "DM Sans", sans-serif;
+  }
+  @keyframes anime {
+    0% {
+      font-family: "Plain light";
+      -webkit-text-stroke: 1px #fff;
+      color: #fff;
+      font-weight: 500;
+      opacity: 1;
+    }
+    48% {
+      font-family: "Plain light";
+      -webkit-text-stroke: 1px #fff;
+      color: #fff;
+      font-weight: 500;
+      opacity: 0;
+    }
+    50% {
+      font-family: "silk serif";
+      -webkit-text-stroke: 1px #fff;
+      font-weight: 500;
+      color: transparent;
+      opacity: 1;
+    }
+    100% {
+      font-family: "silk serif";
+      -webkit-text-stroke: 1px #fff;
+      font-weight: 500;
+      color: transparent;
+      opacity: 0;
+    }
+  }
