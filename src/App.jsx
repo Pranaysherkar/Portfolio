@@ -1,34 +1,49 @@
 import React, { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import Loader from "./components/Loader";
+import Cursor from "./templates/Cursor";
 import Header from "./components/Header";
-import Loader from "./components/Loader"; // Import the Loader component
+import Home from "./components/Home";
+import About from "./components/About";
+import Projects from "./components/Projects";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { gsap } from "gsap";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const App = () => {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
-  // Simulating loading state for 3 seconds
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 3000); // Adjust the duration as needed
+      // Delay refresh slightly to ensure About is mounted
+      setTimeout(() => ScrollTrigger.refresh(), 100); 
+    }, 3000); // Loader timeout
     return () => clearTimeout(timer);
   }, []);
 
   return (
-    <div className="h-screen w-screen bg-black/90 overflow-x-hidden text-white">
-      <AnimatePresence>
+    <div className="relative w-full min-h-screen bg-gradient-to-tr from-[#000957] via-black to-[#461979] overflow-x-hidden text-white cursor-none">
+      <Cursor />
+      <AnimatePresence mode="wait">
         {loading ? (
           <motion.div
             key="loader"
             initial={{ y: 0 }}
             animate={{ y: 0 }}
-            exit={{ y: "-100%" }} // Move the loader upwards
-            transition={{ duration: 1, ease: "easeInOut" }} // Smooth animation
+            exit={{ y: "-100%" }}
+            transition={{ duration: 1, ease: "easeInOut" }}
           >
             <Loader />
           </motion.div>
         ) : (
-          <Header />
+          <>
+            <Header />
+            <Home />
+            <About />
+            <Projects />
+          </>
         )}
       </AnimatePresence>
     </div>

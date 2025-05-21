@@ -2,25 +2,24 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 const Loader = () => {
-  const [count, setCount] = useState(0); // Initialize state for the counter
+  const [count, setCount] = useState(0);
 
   useEffect(() => {
-    // Set up interval to increment count from 0 to 100
     const interval = setInterval(() => {
-      setCount((prevCount) => {
-        if (prevCount === 100) {
-          clearInterval(interval); // Stop when the count reaches 100
-          return prevCount;
+      setCount((prev) => {
+        if (prev === 100) {
+          clearInterval(interval);
+          return prev;
         }
-        return prevCount + 1;
+        return prev + 1;
       });
-    }, 100); // Adjust the speed of the animation
+    }, 100);
 
-    return () => clearInterval(interval); // Clean up the interval when the component unmounts
+    return () => clearInterval(interval);
   }, []);
 
   return (
-    <div className="h-screen w-screen bg-black flex flex-col justify-center items-center gap-8">
+    <div className="h-screen w-screen bg-black flex flex-col justify-center items-center gap-8 relative px-4">
       {/* Background Glow */}
       <motion.div
         className="absolute inset-0 bg-gradient-to-tr from-purple-900 via-black to-blue-900 opacity-40 blur-3xl"
@@ -29,35 +28,36 @@ const Loader = () => {
         transition={{ duration: 2 }}
       />
 
-      {/* Custom Loading Text */}
-      <div className="text-[7vw] font-bold italic leading-24 tracking-tight flex flex-col items-start gap-10 text-white z-20 ">
-        <h1>
-          <span className="inline-block w-1/4 pl-5 h-auto text-[3.5vw] font-light tracking-wide">
-            100-{count}
-          </span>{" "}
+      {/* Loader Text */}
+      <div className="text-[6vw] sm:text-[5vw] md:text-[4vw] lg:text-[3.5vw] font-bold italic leading-snug tracking-tight text-white z-20 w-full max-w-[90%]">
+        <h1 className="flex flex-col">
           Your <br />
           Web Experiences is
-          <br /> loading right{" "}
-          <motion.span
-            className="inline-block text-transparent"
-            style={{
-              WebkitTextStroke: "2px #fff", // Blue stroke      
-            }}
-            animate={{
-              opacity: [1, 0.5, 1], // Blinking effect
-            }}
-            transition={{
-              duration: 1,
-              repeat: Infinity,
-              repeatType: "loop",
-            }}
-          >
-            Now
-          </motion.span>
+          <div className="flex items-center justify-between w-full">
+            {/* Left Side: Loading Text */}
+            <span className="flex items-center gap-3">
+              loading right{" "}
+              <motion.span
+                className="text-transparent"
+                style={{ WebkitTextStroke: "2px #fff" }}
+                animate={{ opacity: [1, 0.5, 1] }}
+                transition={{ duration: 1, repeat: Infinity, repeatType: "loop" }}
+              >
+                Now
+              </motion.span>
+            </span>
+
+            {/* Right Side: 100-count% */}
+            <span className="text-xs sm:text-sm md:text-lg lg:text-xl font-light mt-3 tracking-wider">
+              100-<span className="inline-block w-10 text-center">{count}</span> %
+            </span>
+          </div>
         </h1>
+
+        {/* Progress Bar */}
         <span
           style={{ width: `${count}%`, transition: "width 0.1s ease-out" }}
-          className={`inline-block h-1 bg-white z-20`}
+          className="inline-block h-1 bg-white mt-4"
         ></span>
       </div>
     </div>

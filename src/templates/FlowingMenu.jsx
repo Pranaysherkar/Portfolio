@@ -80,7 +80,7 @@ function MenuItem({ link, text, image }) {
         {text}
       </a>
       <div
-        className="absolute top-0 left-0 w-full h-full rounded-2xl overflow-hidden pointer-events-none bg-slate-400 translate-y-[101%]"
+        className="absolute top-0 left-0 w-full h-full rounded-2xl overflow-hidden pointer-events-none bg-purple-400 translate-y-[101%]"
         ref={marqueeRef}
       >
         <div className="h-full w-[200%] flex" ref={marqueeInnerRef}>

@@ -42,10 +42,10 @@ const Header = () => {
   };
 
   return (
-    <div className="selection-none w-screen flex justify-between items-center px-10 py-6 fixed bg-transparent z-50">
+    <div className="selection-none w-screen flex justify-between items-center px-6 py-4 fixed bg-transparent z-50">
       {/* Logo with Mouse Interaction */}
       <motion.div
-        className="logo h-14 w-14 bg-black rounded-full overflow-hidden cursor-pointer"
+        className="logo h-12 w-12 sm:h-16 sm:w-16 md:h-14 md:w-14 border rounded-xl overflow-hidden cursor-pointer"
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
         style={{
@@ -58,7 +58,7 @@ const Header = () => {
 
       {/* Hamburger Icon with Mouse Interaction */}
       <div
-        className="relative w-8 h-8 cursor-pointer z-20"
+        className="relative w-10 h-6 cursor-pointer z-20 rounded-lg flex items-center justify-center sm:w-12 sm:h-7 md:w-12 md:h-5"
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
         style={{
@@ -68,16 +68,16 @@ const Header = () => {
         onClick={() => setIsOpen(!isOpen)}
       >
         <span
-          className={`absolute left-0 h-1 w-full bg-white rounded transition-all duration-600 ease-in-out
-      ${isOpen ? "rotate-45 top-3.5" : "top-1"}`}
+          className={`absolute h-[.8px] md:h-1 w-5 md:w-8 bg-white rounded transition-all duration-600 ease-in-out
+            ${isOpen ? "rotate-45 top-2" : "top-1"}`} // Adjusted top position for hamburger state
         />
         <span
-          className={`absolute left-0 h-1 w-full bg-white rounded transition-all duration-600 ease-in-out
-      ${isOpen ? "-rotate-45 top-3.5" : "bottom-1"}`}
+          className={`absolute h-[.8px] md:h-1 w-5 md:w-8 bg-white rounded transition-all duration-600 ease-in-out
+            ${isOpen ? "-rotate-45 top-2" : "top-3"}`} // Adjusted top position for hamburger state
         />
       </div>
 
-      {/* Sidebar with Yellow Background */}
+      {/* Sidebar */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -85,9 +85,9 @@ const Header = () => {
             animate={{ x: "0%", opacity: 1 }}
             exit={{ x: "100%", opacity: 0 }}
             transition={{ duration: 0.6, ease: "easeInOut" }}
-            className="fixed top-0 right-0 h-screen w-full sm:w-1/4 bg-black/50 backdrop-blur-xl flex items-center justify-center z-10 p-6 text-white"
+            className="fixed top-0 right-0 h-screen w-full sm:w-3/4 md:w-1/3 bg-black/40 backdrop-blur-xl flex items-center justify-center z-10 p-6 text-white"
           >
-            <ul className="space-y-4 h-11/12 w-11/12 flex flex-col items-center justify-center rounded-lg shadow-lg text-4xl font-semibold">
+            <ul className="space-y-4 h-11/12 w-10/12 flex flex-col items-center justify-center rounded-lg shadow-lg text-4xl font-semibold">
               <div className="h-1/2 w-full flex items-center justify-center ">
                 <FlowingMenu
                   className="rounded-2xl overflow-hidden"
