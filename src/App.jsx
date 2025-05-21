@@ -5,6 +5,7 @@ import Cursor from "./templates/Cursor";
 import Header from "./components/Header";
 import Home from "./components/Home";
 import About from "./components/About";
+import TechStack from "./components/TechStack";
 import Projects from "./components/Projects";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { gsap } from "gsap";
@@ -24,7 +25,7 @@ const App = () => {
   }, []);
 
   return (
-    <div className="relative w-full min-h-screen bg-gradient-to-tr from-[#000957] via-black to-[#461979] overflow-x-hidden text-white cursor-none">
+    <div className="relative w-full min-h-screen bg-gradient-to-tr from-[#000957] via-black to-[#330f5c] overflow-x-hidden text-white cursor-none">
       <Cursor />
       <AnimatePresence mode="wait">
         {loading ? (
@@ -42,6 +43,7 @@ const App = () => {
             <Header />
             <Home />
             <About />
+            <TechStack/>
             <Projects />
           </>
         )}

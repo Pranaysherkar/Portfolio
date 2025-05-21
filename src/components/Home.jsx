@@ -77,7 +77,7 @@ const Home = () => {
         transition={{ delay: 1.4, duration: 1 }}
         className="relative ml-20 mt-8 text-lg sm:text-xl max-w-3xl text-left tracking-wide z-10 mix-blend-difference mr-48"
       >
-        Hi, I'm{" "}
+        Namaste, I'm{" "}
         <span className="relative inline-block font-extrabold text-purple-400 shine">
           Pranay Sherkar
         </span>{" "}

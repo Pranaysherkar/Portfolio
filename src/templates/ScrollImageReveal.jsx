@@ -12,31 +12,31 @@ const ScrollImageReveal = () => {
     },
     {
       url: "https://assets-global.website-files.com/6334198f239547d0f9cd84b3/634ef0acbc45cb2f4fc5c6b2_Yahoo.png",
-      top: "70%",
+      top: "60%",
       left: "50%",
       isActive: false,
     },
     {
       url: "https://assets-global.website-files.com/6334198f239547d0f9cd84b3/634ef0accfe1b3e66bc55462_Refokus%20Tools.png",
-      top: "80%",
+      top: "70%",
       left: "50%",
       isActive: false,
     },
     {
       url: "https://assets-global.website-files.com/6334198f239547d0f9cd84b3/634ef092455ce2cf591e52d1_Rainfall.png",
-      top: "90%",
+      top: "80%",
       left: "50%",
       isActive: false,
     },
     {
       url: "https://assets-global.website-files.com/6334198f239547d0f9cd84b3/634ef0ac7e7179d210dc41f0_Summon.png",
-      top: "100%",
+      top: "90%",
       left: "50%",
       isActive: false,
     },
     {
       url: "https://assets-global.website-files.com/6334198f239547d0f9cd84b3/634ef0af108a465002975acd_Showcase%20Websites%20(1).png",
-      top: "110%",
+      top: "100%",
       left: "50%",
       isActive: false,
     },
@@ -51,7 +51,7 @@ const ScrollImageReveal = () => {
     if (latest > 0.1 && !hasScrolled) {
       setHasScrolled(true);
     }
-    showImages(Math.floor(latest * 10));
+    showImages(Math.floor(latest * 30));
   });
 
   const showImages = (key) => {
@@ -76,7 +76,7 @@ const ScrollImageReveal = () => {
   };
 
   return (
-    <div className="imgContainer absolute h-1/3 w-1/6 translate-x-11/12 -translate-y-1/3 top-1/2 right-1/5 rounded-lg z-10">
+    <div className="imgContainer absolute h-1/3 w-1/6 translate-x-11/12 translate-y-1/2 top-1/3 right-1/5 rounded-lg z-10">
       {!hasScrolled && (
         <img
           className="w-full h-full absolute -translate-x-1/2 -translate-y-1/2 rounded-2xl"
@@ -97,7 +97,7 @@ const ScrollImageReveal = () => {
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0, scale: 0.95 }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
+        transition={{ duration: .2, ease: "easeOut" }}
       />
     )
 )}    </div>
