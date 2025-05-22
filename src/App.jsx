@@ -9,6 +9,7 @@ import TechStack from "./components/TechStack";
 import Projects from "./components/Projects";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { gsap } from "gsap";
+import Connect from "./components/Connect";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -25,7 +26,7 @@ const App = () => {
   }, []);
 
   return (
-    <div className="relative w-full min-h-screen bg-gradient-to-tr from-[#000957] via-black to-[#330f5c] overflow-x-hidden text-white cursor-none">
+    <div className="relative w-full min-h-screen bg-gradient-to-tr from-[#4d2652] via-black to-[#330f5c] overflow-x-hidden text-white cursor-none">
       <Cursor />
       <AnimatePresence mode="wait">
         {loading ? (
@@ -45,6 +46,7 @@ const App = () => {
             <About />
             <TechStack/>
             <Projects />
+            <Connect/>
           </>
         )}
       </AnimatePresence>

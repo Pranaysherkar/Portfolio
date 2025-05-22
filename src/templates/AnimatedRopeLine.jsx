@@ -44,7 +44,7 @@ const AnimatedRopeLine = ({ width = 900, stroke = "white", strokeWidth = 1 }) =>
       preserveAspectRatio="none"
       width="100%"
       height="100"
-      className="mt-4"
+      className="mt-1"
     >
       <path
         d={`M0,50 Q${width / 2},50 ${width},50`}

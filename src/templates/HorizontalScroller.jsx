@@ -30,7 +30,7 @@ const HorizontalScroller = () => {
   const repeatedWords = [...words, ...words]; // Repeat for seamless scrolling
 
   return (
-    <div className="w-full space-y-4 mt-10">
+    <div className="w-full space-y-4 mt-20">
       {/* Top Scroller */}
       <div className="w-full h-20 rounded-2xl overflow-hidden flex items-center justify-center">
         <div className="w-full overflow-hidden">

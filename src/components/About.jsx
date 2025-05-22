@@ -6,6 +6,7 @@ import { FaGithub } from "react-icons/fa6";
 import { FaLinkedinIn } from "react-icons/fa";
 import { BsTwitterX } from "react-icons/bs";
 import { BsInstagram } from "react-icons/bs";
+import ResumeButton from "../templates/ResumeButton";
 gsap.registerPlugin(ScrollTrigger);
 
 const About = () => {
@@ -56,7 +57,6 @@ const About = () => {
           <AnimatedRopeLine />
         </div>
       </div>
-
       <div className="details w-full flex items-start gap-32">
         <div className="nameAndLinks w-1/3 h-64 flex flex-col items-start justify-between">
           <h1 className="text-3xl capitalize tracking-widest">
@@ -83,7 +83,10 @@ const About = () => {
           full-stack solutions.
         </div>
       </div>
-      <AnimatedRopeLine />
+      <div className="mt-12 w-11/12 flex flex-col items-center">
+        <ResumeButton />
+        <AnimatedRopeLine />
+      </div>
     </div>
   );
 };
