@@ -1,29 +1,32 @@
-// /templates/ScrollImageReveal.jsx
 import React, { useState } from "react";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
+import IMG1 from "../assets/cardsimg/IMG1.avif";
+import IMG2 from "../assets/cardsimg/IMG2.avif";
+import IMG3 from "../assets/cardsimg/IMG3.avif";
+import IMG4 from "../assets/cardsimg/IMG4.avif";
 
 const ScrollImageReveal = () => {
   const initialImages = [
     {
-      url: "https://i.pinimg.com/736x/bb/cb/04/bbcb04c422df47f244e813cf3b6e1779.jpg",
+      url:IMG1,
       top: "50%",
       left: "50%",
       isActive: false,
     },
     {
-      url: "https://i.pinimg.com/736x/dc/48/39/dc4839f576eeb8a2c1f73809d73c456b.jpg",
+      url: IMG2,
       top: "60%",
       left: "40%",
       isActive: false,
     },
     {
-      url: "https://i.pinimg.com/736x/77/a2/28/77a228533edc2e1e1f4ddca2bbfdc591.jpg",
+      url: IMG3,
       top: "70%",
       left: "60%",
       isActive: false,
     },
     {
-      url: "https://i.pinimg.com/736x/82/89/93/8289935ee850fe84deb1baa365f60ef1.jpg",
+      url: IMG4,
       top: "90%",
       left: "40%",
       isActive: false,
@@ -39,7 +42,7 @@ const ScrollImageReveal = () => {
     if (latest > 0.1 && !hasScrolled) {
       setHasScrolled(true);
     }
-    showImages(Math.floor(latest * 30));
+    showImages(Math.floor(latest * 50));
   });
 
   const showImages = (key) => {
@@ -62,7 +65,7 @@ const ScrollImageReveal = () => {
   };
 
   return (
-    <div className="imgContainer absolute h-[40%] w-1/6 translate-x-11/12 translate-y-1/2 top-1/4 right-1/5 rounded-lg z-10">
+    <div className="hidden md:block imgContainer absolute md:h-[25vh] md:w-1/5 lg:h-[40%] lg:w-1/6 translate-x-11/12 translate-y-1/2 md:top-1/2 lg:top-1/4 right-1/5 rounded-lg z-10">
       {!hasScrolled && (
         <img
           className="w-full h-full absolute -translate-x-1/2 -translate-y-1/2 rounded-2xl"
@@ -91,4 +94,3 @@ const ScrollImageReveal = () => {
 };
 
 export default ScrollImageReveal;
-//

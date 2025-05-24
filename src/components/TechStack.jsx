@@ -103,9 +103,9 @@ const TechStack = () => {
   }, []);
 
   return (
-    <div className="min-h-screen w-full px-6 py-24 text-white relative flex flex-col items-center gap-10">
+    <div className="min-h-screen w-full px-6 py-8 md:py-24 text-white relative flex flex-col items-center gap-10">
       {/* Centered Flower Image and Heading */}
-      <div className="relative flex flex-col items-center">
+      <div className="w-full relative flex flex-col items-center">
         <img
           ref={flowerRef}
           src={flower}
@@ -113,11 +113,11 @@ const TechStack = () => {
           className="w-60 md:w-80 lg:w-96 brightness-50"
         />
 
-        <h3 className="absolute top-[60%] text-base tracking-widest text-violet-300 uppercase">
+        <h3 className="absolute top-[60%] text-xs md:text-base tracking-widest text-violet-300 uppercase">
           I constantly try to improve
         </h3>
 
-        <div className="absolute top-[70%] w-[130%] h-22 rounded-3xl bg-transparent backdrop-blur-md shadow-[0_20px_40px_rgba(255,255,255,0.2)] z-0" />
+        <div className="absolute top-[70%] w-full sm:w-[50%] md:w-[60%] lg:w-[35%] h-14 md:h-22 rounded-3xl bg-transparent backdrop-blur-md shadow-[0_20px_40px_rgba(255,255,255,0.2)] z-0" />
 
         <h1 className="absolute top-[72%] tracking-tight text-4xl md:text-6xl font-bold text-indigo-200 whitespace-nowrap z-10">
           My Tech Stack
@@ -133,7 +133,7 @@ const TechStack = () => {
             key={i}
             className="flex items-center gap-2 bg-[#1a1a1a] px-4 py-2 rounded-full text-sm text-white hover:text-blue-300 hover:bg-[#2a2a2a] transition-all duration-300 cursor-pointer"
           >
-            <span className="text-xl">{tech.icon}</span>
+            <span className="md:text-xl">{tech.icon}</span>
             <span className="tracking-wider">{tech.name}</span>
           </div>
         ))}

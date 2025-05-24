@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 const GoLiveCircle = () => {
   return (
-    <div className="relative w-20 h-20  bg-black/50 backdrop-blur-3xl rounded-full">
+    <div className="hidden md:block relative w-20 h-20  bg-black/50 backdrop-blur-3xl rounded-full">
       {/* Rotating SVG Circle */}
       <motion.div
         className="w-full h-full"

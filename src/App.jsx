@@ -14,7 +14,7 @@ import Connect from "./components/Connect";
 gsap.registerPlugin(ScrollTrigger);
 
 const App = () => {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const timer = setTimeout(() => {

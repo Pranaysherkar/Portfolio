@@ -20,13 +20,13 @@ const HorizontalScroller = ({ words = [] }) => {
   return (
     <div className="w-full space-y-4 mt-20 bg-gradient-to-r from-purple-900 via-indigo-900 to-purple-900 rounded-2xl py-1">
       {/* Top Scroller */}
-      <div className="w-full h-20 rounded-2xl overflow-hidden flex items-center justify-center">
+      <div className="w-full h-10 md:h-20 rounded-2xl overflow-hidden flex items-center justify-center">
         <div className="w-full overflow-hidden">
           <div className="whitespace-nowrap flex" ref={scrollerRef1}>
             {repeatedWords.map((word, index) => (
               <div
                 key={index}
-                className="text-white text-3xl md:text-4xl font-light px-6 flex items-center gap-3"
+                className="text-white sm:text-3xl md:text-4xl font-light px-6 flex items-center gap-3"
               >
                 {word}
                 <span className="inline-block text-white">

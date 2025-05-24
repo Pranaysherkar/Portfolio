@@ -23,12 +23,12 @@ import {
   SiPostcss,
 } from "react-icons/si";
 import { RiTwitterXLine } from "react-icons/ri";
-import imgMoive from "../assets/projectsImg/movie.png";
-import adminIMG from "../assets/projectsImg/adminIMG.png";
-import codeIMG from "../assets/projectsImg/codeReview.png";
-import empIMG from "../assets/projectsImg/empIMG.png";
-import xIMG from "../assets/projectsImg/xIMG.png";
-import { motion } from "framer-motion";
+import imgMoive from "../assets/projectsImg/movie.avif";
+import adminIMG from "../assets/projectsImg/adminIMG.avif";
+import codeIMG from "../assets/projectsImg/codeReview.avif";
+import empIMG from "../assets/projectsImg/empIMG.avif";
+import xIMG from "../assets/projectsImg/xIMG.avif";
+import { motion, AnimatePresence } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import GoLiveCircle from "./GoLiveCircle";
@@ -163,6 +163,8 @@ const projects = [
   },
 ];
 
+// ... imports remain unchanged
+
 const ProjectCard = () => {
   const cardsRef = useRef([]);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -190,7 +192,7 @@ const ProjectCard = () => {
   }, []);
 
   return (
-    <div className="h-1/2 w-full space-y-8 flex flex-col items-center justify-center p-4 mt-20 tracking-wider">
+    <div className="w-full flex flex-col items-center justify-center px-2 sm:px-4 mt-20 space-y-10">
       {projects.map((project, index) => (
         <motion.div
           key={index}
@@ -198,10 +200,11 @@ const ProjectCard = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: index * 0.2 }}
-          className="w-10/12 flex flex-col md:flex-row items-center gap-6 bg-black rounded-3xl p-8 shadow-xl border border-neutral-800"
+          className="w-full sm:w-[95%] md:w-10/12 flex flex-col md:flex-row items-center gap-6 bg-black rounded-3xl p-5 sm:p-8 shadow-xl border border-neutral-800"
         >
+          {/* Image Section */}
           <div
-            className="relative bg-gradient-to-br from-purple-900 via-black/70 to-purple-900 rounded-2xl p-4 w-[50%]"
+            className="relative w-full md:w-[50%] bg-gradient-to-br from-purple-900 via-black/70 to-purple-900 rounded-2xl p-3"
             onClick={() =>
               window.open(project.liveLink, "_blank", "noopener,noreferrer")
             }
@@ -217,31 +220,39 @@ const ProjectCard = () => {
             <img
               src={project.img}
               alt={project.heading}
-              className="rounded-xl shadow-xl border border-black w-full h-full object-cover cursor-pointer"
+              className="rounded-xl shadow-xl border border-black w-full h-auto max-h-[300px] object-cover cursor-pointer"
             />
 
-            {hoveredCard === index && (
-              <div
-                className="absolute pointer-events-none"
-                style={{
-                  top: mousePos.y - 40,
-                  left: mousePos.x - 40,
-                }}
-              >
-                <GoLiveCircle />
-              </div>
-            )}
+            {/* Hover Animation */}
+            <AnimatePresence>
+              {hoveredCard === index && (
+                <motion.div
+                  className="absolute pointer-events-none"
+                  style={{
+                    top: mousePos.y - 40,
+                    left: mousePos.x - 40,
+                  }}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.5 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <GoLiveCircle />
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
 
-          <div className="w-full md:w-[50%] text-white space-y-5">
-            <h2 className="text-fuchsia-400 text-xl font-semibold">
+          {/* Content Section */}
+          <div className="w-full md:w-[50%] text-white space-y-4 tracking-wider">
+            <h2 className="text-fuchsia-400 text-lg sm:text-xl font-semibold">
               {project.heading}
             </h2>
             <p className="text-white text-sm font-medium">
               {project.subheading}
             </p>
             <p className="text-sm text-gray-300">{project.description}</p>
-            <ul className="list-disc pl-2 space-y-1 text-sm">
+            <ul className="space-y-1 text-sm">
               {project.features.map((point, i) => (
                 <li
                   key={i}
@@ -251,11 +262,13 @@ const ProjectCard = () => {
                 </li>
               ))}
             </ul>
-            <div className="flex flex-wrap gap-2 pt-2 tracking-wider">
+
+            {/* Tech Stack */}
+            <div className="flex flex-wrap gap-2 pt-2 tracking-wide">
               {project.tech.map((tech, i) => (
                 <span
                   key={i}
-                  className="flex items-center gap-1 bg-neutral-900 text-white px-2 py-1 rounded-xl text-xs shadow-sm border border-neutral-700"
+                  className="flex items-center gap-1 bg-neutral-900 text-white px-2 py-1 rounded-xl text-xs border border-neutral-700"
                 >
                   {tech.icon}
                   <span className="capitalize">{tech.name}</span>

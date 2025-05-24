@@ -37,11 +37,11 @@ const About = () => {
   const text = `I focus on building user-friendly and responsive websites with smooth animations that not only address practical user needs but also create a more engaging and enjoyable experience.`;
 
   return (
-    <div className="w-full min-h-screen px-6 mx-14">
-      <div className="info w-full mt-18">
+    <div className="w-full min-h-screen lg:px-6 md:mx-14 mx-4 px-2">
+      <div className="info w-full md:mt-18">
         <p
           ref={paragraphRef}
-          className="text-4xl w-2/3 flex flex-wrap leading-relaxed capitalize"
+          className="text-base md:text-2xl lg:text-4xl w-full md:w-10/12 lg:w-2/3 md:flex md:flex-wrap leading-relaxed capitalize"
         >
           {text.split(" ").map((word, i) => (
             <span key={i} className="word mr-2 inline-block text-violet-300">
@@ -57,9 +57,9 @@ const About = () => {
           <AnimatedRopeLine />
         </div>
       </div>
-      <div className="details w-full flex items-start gap-32">
-        <div className="nameAndLinks w-1/3 h-64 flex flex-col items-start justify-between">
-          <h1 className="text-3xl capitalize tracking-widest">
+      <div className="details w-full flex lg:flex-row flex-col items-start lg:gap-32 gap-5">
+        <div className="nameAndLinks lg:w-1/3 lg:h-64 h-20 flex flex-col items-start gap-5 lg:justify-between">
+          <h1 className="text-xl sm:text-2xl lg:text-3xl capitalize tracking-widest">
             Namaste, I'm Pranay.
           </h1>
 
@@ -71,7 +71,7 @@ const About = () => {
           </div>
         </div>
 
-        <div className="description w-1/2 text-lg tracking-widest text-slate-400 leading-relaxed">
+        <div className="description w-full sm:w-10/12 lg:w-1/2 lg:text-lg text-sm tracking-widest text-slate-400 leading-relaxed">
           I'm a MERN stack web developer passionate about building fast,
           interactive, and visually rich web apps. I craft smooth UI/UX using
           React, Tailwind, Three.js, GSAP, Framer Motion, Locomotive.js, and

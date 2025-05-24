@@ -35,7 +35,7 @@ const Loader = () => {
           Web Experiences is
           <div className="flex items-center justify-between w-full">
             {/* Left Side: Loading Text */}
-            <span className="flex items-center gap-3">
+            <span className="flex items-center gap-1 md:gap-3">
               loading right{" "}
               <motion.span
                 className="text-transparent"
@@ -48,7 +48,7 @@ const Loader = () => {
             </span>
 
             {/* Right Side: 100-count% */}
-            <span className="text-xs sm:text-sm md:text-lg lg:text-xl font-light mt-3 tracking-wider">
+            <span className="text-xs sm:text-sm md:text-lg lg:text-xl font-light mt-3 tracking-wider md:ml-0 ml-2">
               100-<span className="inline-block w-10 text-center">{count}</span> %
             </span>
           </div>

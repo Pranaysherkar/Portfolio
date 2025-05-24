@@ -1,51 +1,51 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Logo from "../assets/Logo.png";
-import FlowingMenu from "../templates/FlowingMenu"; // Adjust the import path as necessary
+import FlowingMenu from "../templates/FlowingMenu";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 }); // Declare mousePosition state
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [scrolled, setScrolled] = useState(false);
 
   const demoItems = [
-    {
-      link: "#",
-      text: "Home",
-      image: "https://picsum.photos/600/400?random=1",
-    },
-    {
-      link: "#",
-      text: "About",
-      image: "https://picsum.photos/600/400?random=2",
-    },
-    {
-      link: "#",
-      text: "Projects",
-      image: "https://picsum.photos/600/400?random=3",
-    },
-    {
-      link: "#",
-      text: "Connect",
-      image: "https://picsum.photos/600/400?random=4",
-    },
+    { link: "#", text: "Home", image: "https://picsum.photos/600/400?random=1" },
+    { link: "#", text: "About", image: "https://picsum.photos/600/400?random=2" },
+    { link: "#", text: "Projects", image: "https://picsum.photos/600/400?random=3" },
+    { link: "#", text: "Connect", image: "https://picsum.photos/600/400?random=4" },
   ];
 
   const handleMouseMove = (e) => {
     const rect = e.currentTarget.getBoundingClientRect();
     const x = e.clientX - rect.left - rect.width / 2;
     const y = e.clientY - rect.top - rect.height / 2;
-    setMousePosition({ x: x / 5, y: y / 5 }); // Divide by 5 to limit movement radius
+    setMousePosition({ x: x / 5, y: y / 5 });
   };
 
   const handleMouseLeave = () => {
-    setMousePosition({ x: 0, y: 0 }); // Reset position when the mouse leaves
+    setMousePosition({ x: 0, y: 0 });
   };
 
+  // Detect scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <div className="selection-none w-screen flex justify-between items-center px-6 py-4 fixed bg-transparent z-50">
-      {/* Logo with Mouse Interaction */}
+    <div
+      className={`selection-none fixed top-0 left-0 w-full z-50 px-6 py-2 flex justify-between items-center transition-all duration-300 ${
+        scrolled
+          ? "bg-black/50 backdrop-blur-md shadow-md"
+          : "bg-transparent"
+      }`}
+    >
+      {/* Logo */}
       <motion.div
-        className="logo h-12 w-12 sm:h-16 sm:w-16 md:h-14 md:w-14 border rounded-xl overflow-hidden cursor-pointer"
+        className="h-12 w-12 sm:h-16 sm:w-16 md:h-14 md:w-14 border rounded-xl overflow-hidden cursor-pointer"
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
         style={{
@@ -56,9 +56,9 @@ const Header = () => {
         <img src={Logo} alt="p." className="h-full w-full object-cover" />
       </motion.div>
 
-      {/* Hamburger Icon with Mouse Interaction */}
+      {/* Hamburger Icon */}
       <div
-        className="relative w-10 h-6 cursor-pointer z-20 rounded-lg flex items-center justify-center sm:w-12 sm:h-7 md:w-12 md:h-5"
+        className="relative w-10 h-6 cursor-pointer z-20 flex items-center justify-center sm:w-12 sm:h-7 md:w-12 md:h-5"
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
         style={{
@@ -68,12 +68,14 @@ const Header = () => {
         onClick={() => setIsOpen(!isOpen)}
       >
         <span
-          className={`absolute h-[.8px] md:h-1 w-5 md:w-8 bg-white rounded transition-all duration-600 ease-in-out
-            ${isOpen ? "rotate-45 top-2" : "top-1"}`} // Adjusted top position for hamburger state
+          className={`absolute h-[0.8px] md:h-1 w-5 md:w-8 bg-white rounded transition-all duration-600 ease-in-out ${
+            isOpen ? "rotate-45 top-2" : "top-1"
+          }`}
         />
         <span
-          className={`absolute h-[.8px] md:h-1 w-5 md:w-8 bg-white rounded transition-all duration-600 ease-in-out
-            ${isOpen ? "-rotate-45 top-2" : "top-3"}`} // Adjusted top position for hamburger state
+          className={`absolute h-[0.8px] md:h-1 w-5 md:w-8 bg-white rounded transition-all duration-600 ease-in-out ${
+            isOpen ? "-rotate-45 top-2" : "top-3"
+          }`}
         />
       </div>
 
@@ -88,7 +90,7 @@ const Header = () => {
             className="fixed top-0 right-0 h-screen w-full sm:w-3/4 md:w-1/3 bg-black/40 backdrop-blur-xl flex items-center justify-center z-10 p-6 text-white"
           >
             <ul className="space-y-4 h-11/12 w-10/12 flex flex-col items-center justify-center rounded-lg shadow-lg text-4xl font-semibold">
-              <div className="h-1/2 w-full flex items-center justify-center ">
+              <div className="h-1/2 w-full flex items-center justify-center">
                 <FlowingMenu
                   className="rounded-2xl overflow-hidden"
                   items={demoItems}

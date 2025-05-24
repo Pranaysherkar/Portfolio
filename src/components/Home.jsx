@@ -6,33 +6,26 @@ import ResumeButton from "../templates/ResumeButton";
 const Home = () => {
   const [hasScrolled, setHasScrolled] = useState(false);
 
-  //scroll down animation
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setHasScrolled(true);
-      } else {
-        setHasScrolled(false); // Show again when back at top
-      }
+      setHasScrolled(window.scrollY > 50);
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const handleScrollDown = () => {
     const start = window.scrollY;
-    const end = window.innerHeight; // 1 screen down
-    const duration = 1800; // in ms (increase to slow down)
+    const end = window.innerHeight;
+    const duration = 1800;
 
     let startTime = null;
 
     const animateScroll = (currentTime) => {
       if (!startTime) startTime = currentTime;
       const timeElapsed = currentTime - startTime;
-      const progress = Math.min(timeElapsed / duration, 1); // clamp to 1
+      const progress = Math.min(timeElapsed / duration, 1);
 
-      // easeInOutQuad function for smooth animation
       const easeInOutQuad =
         progress < 0.5
           ? 2 * progress * progress
@@ -49,46 +42,51 @@ const Home = () => {
   };
 
   return (
-    <div className="relative flex flex-col items-start justify-center h-screen w-full overflow-hidden px-6 text-white">
-      {/* Background Glow like Loader */}
+    <div className="relative flex flex-col items-start justify-center h-screen w-full overflow-hidden px-4 sm:px-6 md:px-8 text-white">
+      {/* Background Glow */}
       <motion.div
-        className="absolute "
+        className="absolute"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 2 }}
       />
 
       {/* Neon Glow Circle */}
-      <div className="absolute top-20 left-1/2 -translate-x-1/2 w-72 h-72 rounded-full bg-purple-900/50 opacity-30 filter blur-3xl animate-pulse" />
+      <div className="absolute top-20 left-1/2 -translate-x-1/2 w-52 h-52 sm:w-64 sm:h-64 md:w-72 md:h-72 rounded-full bg-purple-900/50 opacity-30 filter blur-3xl animate-pulse" />
 
-      {/* Headline Text with framer-motion */}
+      {/* Headline */}
       <motion.h1
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5, duration: 1.2, ease: "easeOut" }}
-        className="relative ml-20 mt-10 text-[7vw] sm:text-6xl md:text-7xl font-extrabold tracking-wide uppercase drop-shadow-lg z-20 mix-blend-difference mr-32"
+        className="relative mt-10 text-[10vw] sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-wide uppercase drop-shadow-lg z-20 mix-blend-difference 
+        ml-2 sm:ml-10 md:ml-20 mr-2 sm:mr-10 md:mr-32"
       >
         Crafting <br /> Futuristic <br /> Web Experiences
       </motion.h1>
+
       <ScrollImageReveal />
+
       {/* Subtitle */}
       <motion.p
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 0.8, y: 0 }}
         transition={{ delay: 1.4, duration: 1 }}
-        className="relative ml-20 mt-8 text-lg sm:text-xl max-w-3xl text-left tracking-wide z-10 mix-blend-difference mr-48"
+        className="relative mt-6 text-sm sm:text-base md:text-lg max-w-[95%] sm:max-w-xl text-left tracking-wide z-10 mix-blend-difference 
+        ml-2 sm:ml-10 md:ml-20 mr-2 sm:mr-10 md:mr-48"
       >
         Namaste, I'm{" "}
         <span className="relative inline-block font-extrabold text-purple-400 shine">
           Pranay Sherkar
         </span>{" "}
-        — Web developer crafting sleek animations and seamless backend
-        experiences.
+        — Web developer crafting sleek animations and seamless backend experiences.
       </motion.p>
-      <div className="ml-20 mt-5">
+
+      <div className="ml-2 sm:ml-10 md:ml-20 mt-5">
         <ResumeButton name={"Hire me"} link={"https://www.linkedin.com/in/pranaysherkar/"} />
       </div>
 
+      {/* Scroll Down Animation */}
       {!hasScrolled && (
         <motion.div
           initial={{ opacity: 0, y: 10 }}
@@ -99,7 +97,7 @@ const Home = () => {
             repeat: Infinity,
             repeatType: "reverse",
           }}
-          className="absolute translate-x-1/2 bottom-10 right-1/2  flex flex-col items-center text-white z-20 cursor-pointer"
+          className="absolute translate-x-1/2 bottom-10 right-1/2 flex flex-col items-center text-white z-20 cursor-pointer"
           onClick={handleScrollDown}
         >
           <p className="text-sm tracking-wide font-medium mb-1">Scroll Down</p>
