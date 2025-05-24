@@ -18,49 +18,48 @@ const App = () => {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-  const images = Array.from(document.images);
-  const totalImages = images.length;
-  let loadedCount = 0;
+    const images = Array.from(document.images);
+    const totalImages = images.length;
+    let loadedCount = 0;
 
-  const onImageLoad = () => {
-    loadedCount++;
-    setProgress(Math.round((loadedCount / totalImages) * 100));
-    if (loadedCount === totalImages) {
-      checkFonts();
-    }
-  };
-
-  const checkFonts = () => {
-    document.fonts.ready.then(() => {
-      setLoading(false);
-    });
-  };
-
-  if (totalImages === 0) {
-    checkFonts(); // no images, just wait fonts
-  } else {
-    images.forEach((img) => {
-      if (img.complete) {
-        onImageLoad();
-      } else {
-        img.addEventListener("load", onImageLoad);
-        img.addEventListener("error", onImageLoad);
+    const onImageLoad = () => {
+      loadedCount++;
+      setProgress(Math.round((loadedCount / totalImages) * 100));
+      if (loadedCount === totalImages) {
+        checkFonts();
       }
-    });
-  }
+    };
 
-  return () => {
-    images.forEach((img) => {
-      img.removeEventListener("load", onImageLoad);
-      img.removeEventListener("error", onImageLoad);
-    });
-  };
-}, []);
+    const checkFonts = () => {
+      document.fonts.ready.then(() => {
+        setLoading(false);
+      });
+    };
 
+    if (totalImages === 0) {
+      checkFonts(); // no images, just wait fonts
+    } else {
+      images.forEach((img) => {
+        if (img.complete) {
+          onImageLoad();
+        } else {
+          img.addEventListener("load", onImageLoad);
+          img.addEventListener("error", onImageLoad);
+        }
+      });
+    }
+
+    return () => {
+      images.forEach((img) => {
+        img.removeEventListener("load", onImageLoad);
+        img.removeEventListener("error", onImageLoad);
+      });
+    };
+  }, []);
 
   return (
     <div className="relative w-full min-h-screen bg-gradient-to-tr from-[#252525f8] via-black to-[#330f5c] overflow-x-hidden text-white cursor-none">
-      {/* Cursor and AnimatePresence */}
+      <Cursor />{" "}
       <AnimatePresence mode="wait">
         {loading ? (
           <motion.div
