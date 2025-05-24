@@ -26,7 +26,7 @@ const App = () => {
   }, []);
 
   return (
-    <div className="relative w-full min-h-screen bg-gradient-to-tr from-[#4d2652] via-black to-[#330f5c] overflow-x-hidden text-white cursor-none">
+    <div className="relative w-full min-h-screen bg-gradient-to-tr from-[#252525f8] via-black to-[#330f5c] overflow-x-hidden text-white cursor-none">
       <Cursor />
       <AnimatePresence mode="wait">
         {loading ? (

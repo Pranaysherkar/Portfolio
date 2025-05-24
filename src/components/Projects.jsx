@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ProjectCard from "../templates/ProjectCard";
+import HorizontalScroller from "../templates/HorizontalScroller";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -80,8 +81,21 @@ const Projects = () => {
         </h1>
       </div>
       {/* <div className="w-full max-h-[60vh] overflow-y-auto mt-20"> */}
-        <ProjectCard />
+      <ProjectCard />
       {/* </div> */}
+      <HorizontalScroller
+        words={[
+          "Connect",
+          "Collaborate",
+          "Create",
+          "Build",
+          "Deploy",
+          "Explore",
+          "Innovate",
+          "Network",
+          "Solve",
+        ]}
+      />
     </div>
   );
 };

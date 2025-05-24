@@ -123,7 +123,6 @@ const TechStack = () => {
           My Tech Stack
         </h1>
       </div>
-
       {/* Tech Icons */}
       <div
         ref={iconsContainerRef}
@@ -139,7 +138,19 @@ const TechStack = () => {
           </div>
         ))}
       </div>
-      <HorizontalScroller/>
+      <HorizontalScroller
+        words={[
+          "Scalable",
+          "Responsive",
+          "Engaging",
+          "Fast",
+          "Secure",
+          "Interactive",
+          "Modern",
+          "Reliable",
+          "Flexible",
+        ]}
+      />{" "}
     </div>
   );
 };

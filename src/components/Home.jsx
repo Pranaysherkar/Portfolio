@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import ScrollImageReveal from "../templates/ScrollImageReveal";
+import ResumeButton from "../templates/ResumeButton";
 
 const Home = () => {
   const [hasScrolled, setHasScrolled] = useState(false);
@@ -84,6 +85,9 @@ const Home = () => {
         — Web developer crafting sleek animations and seamless backend
         experiences.
       </motion.p>
+      <div className="ml-20 mt-5">
+        <ResumeButton name={"Hire me"} link={"https://www.linkedin.com/in/pranaysherkar/"} />
+      </div>
 
       {!hasScrolled && (
         <motion.div

@@ -3,19 +3,7 @@ import { gsap } from "gsap";
 import { MdArrowOutward } from "react-icons/md";
 import { useGSAP } from "@gsap/react";
 
-const words = [
-  "Scalable",
-  "Responsive",
-  "Engaging",
-  "Fast",
-  "Secure",
-  "Interactive",
-  "Modern",
-  "Reliable",
-  "Flexible",
-];
-
-const HorizontalScroller = () => {
+const HorizontalScroller = ({ words = [] }) => {
   const scrollerRef1 = useRef();
 
   useGSAP(() => {
@@ -27,10 +15,10 @@ const HorizontalScroller = () => {
     });
   }, []);
 
-  const repeatedWords = [...words, ...words]; // Repeat for seamless scrolling
+  const repeatedWords = [...words, ...words, ...words]; // Repeat for seamless scrolling
 
   return (
-    <div className="w-full space-y-4 mt-20">
+    <div className="w-full space-y-4 mt-20 bg-gradient-to-r from-purple-900 via-indigo-900 to-purple-900 rounded-2xl py-1">
       {/* Top Scroller */}
       <div className="w-full h-20 rounded-2xl overflow-hidden flex items-center justify-center">
         <div className="w-full overflow-hidden">

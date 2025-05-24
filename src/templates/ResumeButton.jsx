@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import gsap from "gsap";
 
-const ResumeButton = () => {
+const ResumeButton = ({ name,link }) => {
   const btnRef = useRef(null);
   const bgRef = useRef(null);
 
@@ -48,7 +48,16 @@ const ResumeButton = () => {
         ref={bgRef}
         className="absolute right-0 top-0 h-full w-0 bg-violet-800 z-0"
       />
-      <span className="relative z-10">Resume ↗</span>
+      <span className="relative z-10">
+        <a
+          href={link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="no-underline"
+        >
+          {name} ↗
+        </a>
+      </span>
     </motion.button>
   );
 };

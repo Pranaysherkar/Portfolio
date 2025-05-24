@@ -84,7 +84,7 @@ const About = () => {
         </div>
       </div>
       <div className="mt-12 w-11/12 flex flex-col items-center">
-        <ResumeButton />
+        <ResumeButton name={"Resume"} link={"https://drive.google.com/file/d/1AR4LoJQdNkIdSAYWr6aOlIc6Hw2ODTqJ/view?usp=sharing"} />
         <AnimatedRopeLine />
       </div>
     </div>
