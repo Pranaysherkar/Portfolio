@@ -65,7 +65,13 @@ const Home = () => {
         Crafting <br /> Futuristic <br /> Web Experiences
       </motion.h1>
 
-      <ScrollImageReveal />
+      <motion.div
+        initial={{ opacity: 0}}
+        animate={{ opacity: 1}}
+        transition={{ delay: 0.8, duration: 2, ease: "easeOut" }}
+      >
+        <ScrollImageReveal />
+      </motion.div>
 
       {/* Subtitle */}
       <motion.p
@@ -79,11 +85,15 @@ const Home = () => {
         <span className="relative inline-block font-extrabold text-purple-400 shine">
           Pranay Sherkar
         </span>{" "}
-        — Web developer crafting sleek animations and seamless backend experiences.
+        — Web developer crafting sleek animations and seamless backend
+        experiences.
       </motion.p>
 
       <div className="ml-2 sm:ml-10 md:ml-20 mt-5">
-        <ResumeButton name={"Hire me"} link={"https://www.linkedin.com/in/pranaysherkar/"} />
+        <ResumeButton
+          name={"Hire me"}
+          link={"https://www.linkedin.com/in/pranaysherkar/"}
+        />
       </div>
 
       {/* Scroll Down Animation */}

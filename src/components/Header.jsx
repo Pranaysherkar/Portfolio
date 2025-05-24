@@ -37,9 +37,9 @@ const Header = () => {
 
   return (
     <div
-      className={`selection-none fixed top-0 left-0 w-full z-50 px-6 py-2 flex justify-between items-center transition-all duration-300 ${
+      className={`selection-none fixed top-0 left-0 w-full z-50 px-6 pt-4 flex justify-between items-center transition-all duration-300 ${
         scrolled
-          ? "bg-black/50 backdrop-blur-md shadow-md"
+          ? "bg-black-/50 backdrop-blur-lg shadow-md"
           : "bg-transparent"
       }`}
     >

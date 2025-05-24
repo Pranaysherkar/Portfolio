@@ -15,19 +15,52 @@ gsap.registerPlugin(ScrollTrigger);
 
 const App = () => {
   const [loading, setLoading] = useState(true);
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
+  const images = Array.from(document.images);
+  const totalImages = images.length;
+  let loadedCount = 0;
+
+  const onImageLoad = () => {
+    loadedCount++;
+    setProgress(Math.round((loadedCount / totalImages) * 100));
+    if (loadedCount === totalImages) {
+      checkFonts();
+    }
+  };
+
+  const checkFonts = () => {
+    document.fonts.ready.then(() => {
       setLoading(false);
-      // Delay refresh slightly to ensure About is mounted
-      setTimeout(() => ScrollTrigger.refresh(), 100); 
-    }, 3000); // Loader timeout
-    return () => clearTimeout(timer);
-  }, []);
+    });
+  };
+
+  if (totalImages === 0) {
+    checkFonts(); // no images, just wait fonts
+  } else {
+    images.forEach((img) => {
+      if (img.complete) {
+        onImageLoad();
+      } else {
+        img.addEventListener("load", onImageLoad);
+        img.addEventListener("error", onImageLoad);
+      }
+    });
+  }
+
+  return () => {
+    images.forEach((img) => {
+      img.removeEventListener("load", onImageLoad);
+      img.removeEventListener("error", onImageLoad);
+    });
+  };
+}, []);
+
 
   return (
     <div className="relative w-full min-h-screen bg-gradient-to-tr from-[#252525f8] via-black to-[#330f5c] overflow-x-hidden text-white cursor-none">
-      <Cursor />
+      {/* Cursor and AnimatePresence */}
       <AnimatePresence mode="wait">
         {loading ? (
           <motion.div
@@ -37,16 +70,16 @@ const App = () => {
             exit={{ y: "-100%" }}
             transition={{ duration: 1, ease: "easeInOut" }}
           >
-            <Loader />
+            <Loader count={progress} />
           </motion.div>
         ) : (
           <>
             <Header />
             <Home />
             <About />
-            <TechStack/>
+            <TechStack />
             <Projects />
-            <Connect/>
+            <Connect />
           </>
         )}
       </AnimatePresence>
