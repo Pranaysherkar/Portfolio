@@ -33,10 +33,10 @@ const Footer = () => {
             <div className="flex flex-col gap-4 capitalize">
               <h3 className="font-semibold text-base sm:text-lg">Sitemap.</h3>
               <div className="flex flex-col gap-2 [&>*]:hover:text-violet-300 text-sm sm:text-base">
-                <a>Home</a>
-                <a>About</a>
-                <a>Projects</a>
-                <a>Connect</a>
+                <a href="#home" >Home</a>
+                <a href="#about" >About</a>
+                <a href="#projects" >Projects</a>
+                <a href="#connect" >Connect</a>
               </div>
             </div>
 

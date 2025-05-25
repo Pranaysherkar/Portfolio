@@ -9,10 +9,11 @@ const Header = () => {
   const [scrolled, setScrolled] = useState(false);
 
   const demoItems = [
-    { link: "#", text: "Home", image: "https://picsum.photos/600/400?random=1" },
-    { link: "#", text: "About", image: "https://picsum.photos/600/400?random=2" },
-    { link: "#", text: "Projects", image: "https://picsum.photos/600/400?random=3" },
-    { link: "#", text: "Connect", image: "https://picsum.photos/600/400?random=4" },
+    { link: "#home", text: "Home", image: "https://picsum.photos/600/400?random=1" },
+    { link: "#about", text: "About", image: "https://picsum.photos/600/400?random=2" },
+    { link: "#projects", text: "Projects", image: "https://picsum.photos/600/400?random=3" },
+    { link: "#connect", text: "Connect", image: "https://picsum.photos/600/400?random=4" },
+    { link: "https://drive.google.com/file/d/1AR4LoJQdNkIdSAYWr6aOlIc6Hw2ODTqJ/view?usp=sharing", text: "Resume↗", image: "https://picsum.photos/600/400?random=5" },
   ];
 
   const handleMouseMove = (e) => {

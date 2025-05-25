@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import ScrollImageReveal from "../templates/ScrollImageReveal";
 import ResumeButton from "../templates/ResumeButton";
 
-const Home = () => {
+const Home = ({ loading }) => {
   const [hasScrolled, setHasScrolled] = useState(false);
 
   useEffect(() => {
@@ -64,14 +64,15 @@ const Home = () => {
       >
         Crafting <br /> Futuristic <br /> Web Experiences
       </motion.h1>
-
-      <motion.div
-        initial={{ opacity: 0}}
-        animate={{ opacity: 1}}
-        transition={{ delay: 0.8, duration: 2, ease: "easeOut" }}
-      >
-        <ScrollImageReveal />
-      </motion.div>
+      {!loading && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.8, duration: 2, ease: "easeOut" }}
+        >
+          <ScrollImageReveal />
+        </motion.div>
+      )}
 
       {/* Subtitle */}
       <motion.p

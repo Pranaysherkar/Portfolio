@@ -60,31 +60,6 @@ const projects = [
     liveLink: "https://github.com/Pranaysherkar/AI-agent",
   },
   {
-    img: codeIMG,
-    heading: "Code Review",
-    subheading: "AI-Powered Multi-language Code Review & Code Generation",
-    description:
-      "Code Review lets users paste code or ask questions, providing instant AI feedback and code generation with multi-language support.",
-    features: [
-      "Supports multiple programming languages with syntax-highlighted editor.",
-      "AI-powered real-time code review and code generation via Google's Gemini API.",
-      "Ask questions like 'Write code for me' and get AI-generated code snippets.",
-      "Markdown support for well-formatted feedback and answers.",
-    ],
-    tech: [
-      { name: "React", icon: <FaReact /> },
-      { name: "Tailwind CSS", icon: <SiTailwindcss /> },
-      { name: "Prism.js", icon: <IoPrismOutline /> },
-      { name: "Express.js", icon: <SiFramer /> },
-      { name: "Axios", icon: <SiAxios /> },
-      { name: "React Markdown", icon: <SiFramer /> },
-      { name: "Gemini API", icon: <FaGoogle /> },
-      { name: "Vercel", icon: <IoLogoVercel /> },
-      { name: "Github", icon: <FaGithub /> },
-    ],
-    liveLink: "https://code-review-xzjs.vercel.app/",
-  },
-  {
     img: imgMoive,
     heading: "ShowSpot TMDB",
     subheading: "Discover Movies, Web Series & TV Shows Instantly",
@@ -108,6 +83,31 @@ const projects = [
       { name: "Github", icon: <FaGithub /> },
     ],
     liveLink: "https://show-spot.netlify.app/",
+  },
+  {
+    img: codeIMG,
+    heading: "Code Review",
+    subheading: "AI-Powered Multi-language Code Review & Code Generation",
+    description:
+      "Code Review lets users paste code or ask questions, providing instant AI feedback and code generation with multi-language support.",
+    features: [
+      "Supports multiple programming languages with syntax-highlighted editor.",
+      "AI-powered real-time code review and code generation via Google's Gemini API.",
+      "Ask questions like 'Write code for me' and get AI-generated code snippets.",
+      "Markdown support for well-formatted feedback and answers.",
+    ],
+    tech: [
+      { name: "React", icon: <FaReact /> },
+      { name: "Tailwind CSS", icon: <SiTailwindcss /> },
+      { name: "Prism.js", icon: <IoPrismOutline /> },
+      { name: "Express.js", icon: <SiFramer /> },
+      { name: "Axios", icon: <SiAxios /> },
+      { name: "React Markdown", icon: <SiFramer /> },
+      { name: "Gemini API", icon: <FaGoogle /> },
+      { name: "Vercel", icon: <IoLogoVercel /> },
+      { name: "Github", icon: <FaGithub /> },
+    ],
+    liveLink: "https://code-review-xzjs.vercel.app/",
   },
   {
     img: empIMG,
