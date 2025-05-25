@@ -69,7 +69,7 @@ const ScrollImageReveal = () => {
       {!hasScrolled && (
         <img
           className="w-full h-full absolute -translate-x-1/2 -translate-y-1/2 rounded-2xl"
-          src="https://i.pinimg.com/736x/bb/cb/04/bbcb04c422df47f244e813cf3b6e1779.jpg"
+          src={IMG1}
           style={{ top: "50%", left: "50%" }}
           alt="Default"
         />

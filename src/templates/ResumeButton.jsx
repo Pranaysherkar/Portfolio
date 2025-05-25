@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import gsap from "gsap";
+import { ImArrowUpRight2 } from "react-icons/im";
 
 const ResumeButton = ({ name,link }) => {
   const btnRef = useRef(null);
@@ -55,7 +56,7 @@ const ResumeButton = ({ name,link }) => {
           rel="noopener noreferrer"
           className="no-underline"
         >
-          {name} ↗
+          {name} <span className="inline-block"><ImArrowUpRight2/></span>
         </a>
       </span>
     </motion.button>

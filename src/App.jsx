@@ -17,14 +17,20 @@ const App = () => {
   const [loading, setLoading] = useState(true);
   const [progress, setProgress] = useState(0);
 
-  useEffect(() => {
+ useEffect(() => {
+  const waitForDOMImages = setTimeout(() => {
     const images = Array.from(document.images);
     const totalImages = images.length;
     let loadedCount = 0;
 
+    const updateProgress = () => {
+      const imageProgress = totalImages ? (loadedCount / totalImages) * 90 : 90;
+      setProgress(Math.min(100, Math.round(imageProgress)));
+    };
+
     const onImageLoad = () => {
       loadedCount++;
-      setProgress(Math.round((loadedCount / totalImages) * 100));
+      updateProgress();
       if (loadedCount === totalImages) {
         checkFonts();
       }
@@ -32,12 +38,14 @@ const App = () => {
 
     const checkFonts = () => {
       document.fonts.ready.then(() => {
-        setLoading(false);
+        setProgress(100);
+        setTimeout(() => setLoading(false), 500);
       });
     };
 
     if (totalImages === 0) {
-      checkFonts(); // no images, just wait fonts
+      updateProgress();
+      checkFonts();
     } else {
       images.forEach((img) => {
         if (img.complete) {
@@ -55,7 +63,10 @@ const App = () => {
         img.removeEventListener("error", onImageLoad);
       });
     };
-  }, []);
+  }, 100); // slight delay to ensure DOM is fully mounted
+
+  return () => clearTimeout(waitForDOMImages);
+}, []);
 
   return (
     <div className="relative w-full min-h-screen bg-gradient-to-tr from-[#252525f8] via-black to-[#330f5c] overflow-x-hidden text-white cursor-none">

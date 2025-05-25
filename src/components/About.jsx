@@ -64,10 +64,23 @@ const About = () => {
           </h1>
 
           <div className="Links flex justify-between gap-4 text-2xl w-2/3 text-indigo-300 [&>*]:cursor-pointer [&>*]:hover:text-violet-400 transition-all duration-300">
-            <FaGithub />
+            <a
+              href="https://github.com/Pranaysherkar"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaGithub />
+            </a>
+           <a href="https://www.linkedin.com/in/pranay-sherkar-6a0975234/"
+              target="_blank"
+              rel="noopener noreferrer">
             <FaLinkedinIn />
+            </a> 
+           <a href="https://x.com/PranaySher14485"
+              target="_blank"
+              rel="noopener noreferrer">
             <BsTwitterX />
-            <BsInstagram />
+            </a> 
           </div>
         </div>
 
@@ -84,7 +97,12 @@ const About = () => {
         </div>
       </div>
       <div className="mt-12 w-11/12 flex flex-col items-center">
-        <ResumeButton name={"Resume"} link={"https://drive.google.com/file/d/1AR4LoJQdNkIdSAYWr6aOlIc6Hw2ODTqJ/view?usp=sharing"} />
+        <ResumeButton
+          name={"Resume"}
+          link={
+            "https://drive.google.com/file/d/1AR4LoJQdNkIdSAYWr6aOlIc6Hw2ODTqJ/view?usp=sharing"
+          }
+        />
         <AnimatedRopeLine />
       </div>
     </div>
