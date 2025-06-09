@@ -12,19 +12,20 @@ body {
   width: 100%;
   scroll-behavior: smooth;
 }
-/* Custom scrollbar styling */
+.noscroll {
+  overflow: hidden;
+  height: 100vh;
+}
 ::-webkit-scrollbar {
-  width: 0px; /* Width of the scrollbar */
+  width: 0px;
   height: 4vh;
 }
-
 ::-webkit-scrollbar-thumb {
-  background-color: white; /* Color of the scrollbar thumb */
-  border-radius: 4px; /* Rounded corners for the thumb */
+  background-color: white;
+  border-radius: 4px;
 }
-
 ::-webkit-scrollbar-track {
-  background-color: transparent; /* Background of the scrollbar track */
+  background-color: transparent;
 }
 @keyframes shine {
   0% {

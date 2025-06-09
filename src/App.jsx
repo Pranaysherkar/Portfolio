@@ -16,6 +16,15 @@ gsap.registerPlugin(ScrollTrigger);
 const App = () => {
   const [loading, setLoading] = useState(true);
   const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    if (loading) {
+      document.body.classList.add("noscroll");
+    } else {
+      document.body.classList.remove("noscroll");
+    }
+  }, [loading]);
+  
   useEffect(() => {
     const wait = setTimeout(() => {
       requestAnimationFrame(() => {
@@ -60,14 +69,28 @@ const App = () => {
 
   return (
     <div className="relative w-full min-h-screen bg-gradient-to-tr from-[#252525f8] via-black to-[#330f5c] overflow-x-hidden text-white cursor-none">
-      <div className={`${loading ? "opacity-0 invisible" : "opacity-100 visible"} transition-opacity duration-500`}>
+      <div
+        className={`${
+          loading ? "opacity-0 invisible" : "opacity-100 visible"
+        } transition-opacity duration-500`}
+      >
         <Cursor />
         <Header />
-        <section id="home" ><Home loading={loading} /></section> 
-        <section id="about" ><About /></section> 
-        <section id="techstack" ><TechStack /></section> 
-        <section id="projects" ><Projects /></section> 
-        <section id="connect" ><Connect /></section> 
+        <section id="home">
+          <Home loading={loading} />
+        </section>
+        <section id="about">
+          <About />
+        </section>
+        <section id="techstack">
+          <TechStack />
+        </section>
+        <section id="projects">
+          <Projects />
+        </section>
+        <section id="connect">
+          <Connect />
+        </section>
       </div>
 
       <AnimatePresence mode="wait">
