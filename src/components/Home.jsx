@@ -60,7 +60,7 @@ const Home = ({ loading }) => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5, duration: 1.2, ease: "easeOut" }}
         className="relative mt-10 text-[9vw] sm:text-5xl md:text-5xl lg:text-[65px] font-extrabold tracking-wide uppercase drop-shadow-lg z-20 mix-blend-difference 
-        ml-2 sm:ml-10 md:ml-20 mr-2 sm:mr-10 md:mr-32 leading-8 sm:leading-16"
+        ml-2 sm:ml-10 md:ml-20 mr-2 sm:mr-10 md:mr-32 max-sm:leading-[10vw]"
       >
         APPLIED <br />
         AI ENGINEER & <br />
