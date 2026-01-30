@@ -34,7 +34,7 @@ const About = () => {
     };
   }, []);
 
-  const text = `I focus on building user-friendly and responsive websites with smooth animations that not only address practical user needs but also create a more engaging and enjoyable experience.`;
+  const text = `I focus on building intelligent, user-friendly applications with AI-powered features and full-stack systems that solve real problems and deliver engaging experiences.`;
 
   return (
     <div className="w-full min-h-screen lg:px-6 md:mx-14 mx-4 px-2">
@@ -85,22 +85,14 @@ const About = () => {
         </div>
 
         <div className="description w-full sm:w-10/12 lg:w-1/2 lg:text-lg text-sm tracking-widest text-slate-400 leading-relaxed">
-          I'm a MERN stack web developer passionate about building fast,
-          interactive, and visually rich web apps. I craft smooth UI/UX using
-          React, Tailwind, Three.js, GSAP, Framer Motion, Locomotive.js, and
-          Shery.js. On the backend, I work with Node.js, Express, MongoDB,
-          Mongoose, EJS, JWT, bcrypt, and Socket.io, following the MCP
-          architecture for clean, scalable code. I also use AI tools in
-          development and have built custom AI agents to automate tasks and
-          improve performance. Always learning, always building secure, smart,
-          full-stack solutions.
+          I'm-Applied AI Engineer and Full Stack Developer specializing in intelligent automation and modern web systems. I design and deploy AI-powered products, RAG pipelines, and workflow automation using n8n, LangChain, Ollama, and vector databases like Qdrant and pgVector. My full-stack work spans React, Next.js, Node.js, Express, MongoDB, and PostgreSQL, with a focus on MCP-based tool integration. I'm driven by clean architecture, security, and scalability—building solutions that perform in production. Always learning, always shipping.
         </div>
       </div>
       <div className="mt-12 w-11/12 flex flex-col items-center">
         <ResumeButton
           name={"Resume"}
           link={
-            "https://drive.google.com/file/d/1AR4LoJQdNkIdSAYWr6aOlIc6Hw2ODTqJ/view?usp=sharing"
+            "https://drive.google.com/file/d/1R0kU4AgZFxt-5gAoLnpNv9VgkpxCe06O/view?usp=sharing"
           }
         />
         <AnimatedRopeLine />

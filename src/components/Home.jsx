@@ -59,10 +59,12 @@ const Home = ({ loading }) => {
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5, duration: 1.2, ease: "easeOut" }}
-        className="relative mt-10 text-[10vw] sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-wide uppercase drop-shadow-lg z-20 mix-blend-difference 
-        ml-2 sm:ml-10 md:ml-20 mr-2 sm:mr-10 md:mr-32"
+        className="relative mt-10 text-[9vw] sm:text-5xl md:text-5xl lg:text-[65px] font-extrabold tracking-wide uppercase drop-shadow-lg z-20 mix-blend-difference 
+        ml-2 sm:ml-10 md:ml-20 mr-2 sm:mr-10 md:mr-32 leading-8 sm:leading-16"
       >
-        Crafting <br /> Futuristic <br /> Web Experiences
+        APPLIED <br />
+        AI ENGINEER & <br />
+        SOFTWARE DEVELOPER
       </motion.h1>
       {!loading && (
         <motion.div
@@ -79,15 +81,14 @@ const Home = ({ loading }) => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 0.8, y: 0 }}
         transition={{ delay: 1.4, duration: 1 }}
-        className="relative mt-6 text-sm sm:text-base md:text-lg max-w-[95%] sm:max-w-xl text-left tracking-wide z-10 mix-blend-difference 
+        className="relative mt-6 text-xs sm:text-base md:text-lg max-w-[95%] sm:max-w-4xl text-left tracking-wide z-10 mix-blend-difference 
         ml-2 sm:ml-10 md:ml-20 mr-2 sm:mr-10 md:mr-48"
       >
         Namaste, I'm{" "}
         <span className="relative inline-block font-extrabold text-purple-400 shine">
           Pranay Sherkar
         </span>{" "}
-        — Web developer crafting sleek animations and seamless backend
-        experiences.
+        — Applied AI Engineer & Full Stack Developer specializing in MERN stack, workflow automation, and LLM-based systems. Building AI-powered products, RAG pipelines, and production-ready applications.
       </motion.p>
 
       <div className="ml-2 sm:ml-10 md:ml-20 mt-5">

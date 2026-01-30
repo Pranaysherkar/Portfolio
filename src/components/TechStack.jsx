@@ -10,6 +10,10 @@ import {
   FaGithub,
   FaServer,
   FaBootstrap,
+  FaDatabase,
+  FaRobot,
+  FaKey,
+  FaProjectDiagram,
 } from "react-icons/fa";
 import {
   SiJavascript,
@@ -31,7 +35,16 @@ import {
   SiMongoose,
   SiGreensock,
   SiScrollreveal,
-  SiGithubpages,
+  SiDocker,
+  SiPostgresql,
+  SiRedis,
+  SiSocketdotio,
+  SiSupabase,
+  SiZod,
+  SiLangchain,
+  SiHuggingface,
+  SiOllama,
+  SiGithubactions,
 } from "react-icons/si";
 import HorizontalScroller from "../templates/HorizontalScroller";
 
@@ -57,7 +70,6 @@ const techs = [
   { icon: <SiEjs />, name: "EJS" },
   { icon: <SiGit />, name: "Git" },
   { icon: <FaGithub />, name: "GitHub" },
-  { icon: <SiGithubpages />, name: "GitHub Pages" },
   { icon: <SiVercel />, name: "Vercel" },
   { icon: <SiNetlify />, name: "Netlify" },
   { icon: <SiPostman />, name: "Postman" },
@@ -65,6 +77,27 @@ const techs = [
   { icon: <SiPnpm />, name: "pnpm" },
   { icon: <SiOpenai />, name: "AI Tools" },
   { icon: <FaServer />, name: "MCP Server" },
+  // Resume: AI & LLM
+  { icon: <SiLangchain />, name: "LangChain" },
+  { icon: <SiOllama />, name: "Ollama" },
+  { icon: <SiHuggingface />, name: "Hugging Face" },
+  { icon: <FaRobot />, name: "LlamaIndex" },
+  // Resume: RAG & Vector DBs
+  { icon: <FaDatabase />, name: "Qdrant" },
+  { icon: <FaDatabase />, name: "Chroma DB" },
+  { icon: <FaDatabase />, name: "pgVector" },
+  // Resume: Automation & Workflows
+  { icon: <FaProjectDiagram />, name: "n8n" },
+  { icon: <SiGithubactions />, name: "GitHub Actions" },
+  // Resume: Databases & Backend
+  { icon: <SiPostgresql />, name: "PostgreSQL" },
+  { icon: <SiSupabase />, name: "Supabase" },
+  { icon: <SiSocketdotio />, name: "Socket.io" },
+  { icon: <FaKey />, name: "JWT" },
+  { icon: <SiZod />, name: "Zod" },
+  { icon: <SiRedis />, name: "Redis" },
+  // Resume: Tools
+  { icon: <SiDocker />, name: "Docker" },
 ];
 
 const TechStack = () => {
@@ -126,7 +159,7 @@ const TechStack = () => {
       {/* Tech Icons */}
       <div
         ref={iconsContainerRef}
-        className="flex flex-wrap justify-center gap-4 mt-10 max-w-6xl"
+        className="flex flex-wrap justify-center gap-4 mt-10 max-w-7xl"
       >
         {techs.map((tech, i) => (
           <div
